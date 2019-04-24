@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "parcel build src/index.html",
+    "dev": "parcel src/index.html"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,11 @@
   },
   "homepage": "https://github.com/rijkvanzanten/portfolio#readme",
   "devDependencies": {
-    "parcel-bundler": "^1.12.3"
+    "parcel-bundler": "^1.12.3",
+    "sass": "^1.19.0"
+  },
+  "dependencies": {
+    "baffle": "^0.3.6",
+    "minireset.css": "0.0.4"
   }
 }

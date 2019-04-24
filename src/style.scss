@@ -1,0 +1,264 @@
+@import "~minireset.css/minireset.sass";
+@import "variables";
+
+html, body {
+  height: 100%;
+}
+
+html {
+  font-size: 15px;
+
+  @media (min-width: 414px) { font-size: 18px; }
+}
+
+body {
+  font-family: 'Source Code Pro', monospace;
+  background-color: $body-background;
+  color: $white;
+  scroll-snap-type: y mandatory;
+  line-height: 1.4;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  text-size-adjust: 100%;
+}
+
+h1, h2 {
+  color: $orange;
+
+  &::before {
+    content: '# ';
+  }
+}
+
+section {
+  height: 100%;
+  scroll-snap-align: start;
+  width: 100%;
+  padding: 1rem;
+  position: relative;
+
+  p {
+    max-width: 32em;
+  }
+
+  .count {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .links {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+  }
+
+  .links a {
+    display: block;
+    color: $white;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:first-child::after {
+      content: " ()";
+    }
+
+    &:last-child::after {
+      content: " {}";
+    }
+  }
+
+  @media (orientation: landscape) {
+    .description {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+    }
+
+    .links {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      text-align: right;
+    }
+  }
+
+  .art {
+    line-height: 0.9;
+    white-space: pre;
+    position: absolute;
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+    overflow: hidden;
+    font-size: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: max-content;
+
+    > * {
+      font-size: 1rem;
+    }
+  }
+}
+
+#intro .text {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  text-align: right;
+}
+
+.logo {
+  color: $gray;
+  white-space: pre;
+}
+
+.small { display: block; }
+.medium { display: none; }
+.large { display: none; }
+
+@media (min-width: 1112px) {
+  .small { display: none; }
+  .medium { display: block; }
+  .large { display: none; }
+}
+
+@media (min-width: 1600px) {
+  .small { display: none; }
+  .medium { display: none; }
+  .large { display: block; }
+}
+
+#te {
+  .background {
+    z-index: 2;
+    position: relative;
+  }
+
+  .text {
+    color: $gray;
+    white-space: normal;
+    overflow: hidden;
+    width: 98%;
+    height: 92%;
+    position: absolute;
+    top: 6px;
+    left: 3px;
+    z-index: 1;
+  }
+
+  .window {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    z-index: 3;
+
+    &::after {
+      content: "";
+      width: 82.2%;
+      height: 68.7%;
+      background-color: #0F1419;
+      display: block;
+      position: absolute;
+      left: 5px;
+      top: 7.5px;
+    }
+
+    &:last-of-type {
+      top: 30%;
+      left: 40%;
+    }
+  }
+
+  .medium {
+    .text {
+      width: 99.6%;
+      height: 96.1%;
+    }
+
+    .window:nth-child(3) {
+      top: 13%;
+      left: 15%;
+
+      &::after {
+        width: 89.4%;
+        height: 84%;
+        left: 6px;
+        top: 8px;
+      }
+    }
+
+    .window:nth-child(4) {
+      top: 10%;
+      left: 51%;
+
+      &::after {
+        width: 89.4%;
+        height: 77%;
+        left: 6px;
+        top: 8px;
+      }
+    }
+
+    .window:nth-child(5) {
+      top: 30%;
+      left: 40%;
+
+      &::after {
+        width: 89.8%;
+        height: 83.7%;
+        left: 5px;
+        top: 9px;
+      }
+    }
+  }
+
+  .large {
+    .text {
+      width: 99.6%;
+      height: 92.9%;
+    }
+
+    .window:nth-child(3) {
+      top: 18%;
+      left: 20%;
+
+      &::after {
+        width: 93.4%;
+        height: 91%;
+        left: 6px;
+        top: 8px;
+      }
+    }
+
+    .window:nth-child(4) {
+      top: 8%;
+      left: 50%;
+
+      &::after {
+        width: 93.4%;
+        height: 91%;
+        left: 6px;
+        top: 8px;
+      }
+    }
+
+    .window:nth-child(5) {
+      top: 30%;
+      left: 28%;
+
+      &::after {
+        width: 95.4%;
+        height: 91%;
+        left: 6px;
+        top: 8px;
+      }
+    }
+  }
+}
