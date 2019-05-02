@@ -12,15 +12,16 @@ html {
 }
 
 body {
-  font-family: 'Source Code Pro', monospace;
+  font-family: 'IBM Plex Mono', 'Source Code Pro', monospace;
   background-color: $body-background;
   color: $white;
-  scroll-snap-type: y mandatory;
   line-height: 1.4;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   text-size-adjust: 100%;
+  user-select: none;
+  overflow: hidden;
 }
 
 h1, h2 {
@@ -31,12 +32,25 @@ h1, h2 {
   }
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 section {
   height: 100%;
-  scroll-snap-align: start;
   width: 100%;
   padding: 1rem;
-  position: relative;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  // transition: opacity 2s linear;
+  pointer-events: none;
 
   p {
     max-width: 32em;
@@ -90,7 +104,6 @@ section {
   .art {
     line-height: 0.9;
     white-space: pre;
-    position: absolute;
     top: 50%;
     position: absolute;
     transform: translateY(-50%);
@@ -107,7 +120,60 @@ section {
   }
 }
 
-#intro .text {
+body.intro #intro,
+body.te #te,
+body.ranger #ranger,
+body.directus #directus,
+body.cloud #cloud,
+body.dataviz #dataviz,
+body.contact #contact {
+  opacity: 1;
+  // transition: opacity .5s linear;
+  pointer-events: auto;
+}
+
+#prev, #next {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  white-space: pre;
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 50;
+  width: max-content;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  outline: 0;
+
+  &:hover {
+    color: $gray;
+  }
+}
+
+#prev {
+  left: 1rem;
+}
+
+#next {
+  right: 1rem;
+}
+
+body.intro #prev {
+  display: none;
+}
+
+body.contact #next {
+  display: none;
+}
+
+#intro .text,
+#contact .text {
   position: absolute;
   bottom: 1rem;
   right: 1rem;
@@ -260,5 +326,116 @@ section {
         top: 8px;
       }
     }
+  }
+}
+
+#ranger {
+  .background {
+    position: relative;
+  }
+
+  .feather {
+    position: absolute;
+    color: $gray;
+  }
+
+  .small .feather {
+    top: 2rem;
+    right: 2rem;
+  }
+
+  .medium .feather {
+    top: 7rem;
+    right: 6rem;
+  }
+
+  .large .feather {
+    top: 4rem;
+    right: 4rem;
+  }
+}
+
+#directus {
+  .medium .bunny {
+    color: $gray;
+    position: absolute;
+    left: 10rem;
+    top: 8rem;
+    line-height: 1.1;
+  }
+}
+
+#cloud {
+  .background {
+    color: $gray;
+  }
+
+  .box {
+    position: absolute;
+    background-color: $body-background;
+  }
+
+  .box:nth-of-type(2) {
+    top: 5rem;
+    left: 1rem;
+  }
+
+  .box:nth-of-type(3) {
+    top: 8.5rem;
+    left: 4.8rem;
+  }
+
+  .box:nth-of-type(4) {
+    top: 8.5rem;
+    left: 10.8rem;
+  }
+
+  .box:nth-of-type(5) {
+    top: 11.7rem;
+    left: 7.8rem;
+  }
+
+  .box:nth-of-type(6) {
+    top: 2.6rem;
+    left: 10.8rem;
+  }
+
+  .box:nth-of-type(7) {
+    top: 3.4rem;
+    left: 16rem;
+  }
+
+  .box:nth-of-type(8) {
+    top: 5.8rem;
+    left: 16rem;
+  }
+
+  .box:nth-of-type(9) {
+    top: 11.7rem;
+    left: 17.7rem;
+  }
+
+  .box:nth-of-type(10) {
+    top: 8.3rem;
+    left: 32.7rem;
+  }
+
+  .box:nth-of-type(11) {
+    top: 3.3rem;
+    left: 24.3rem;
+  }
+}
+
+#dataviz {
+  .map {
+    position: absolute;
+    top: 0.7rem;
+    left: 0.5rem;
+    transform: scaleX(0.6) scaleY(0.86);
+    transform-origin: top left;
+    clip-path: inset(2.7% 7.8% 3% -0.2%);
+    color: $gray;
+
+    span { color: $white; }
   }
 }
